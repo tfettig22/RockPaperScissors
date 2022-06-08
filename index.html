@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>Rock - Paper - Scissors</header>
+    <main>
+      <section class="player-section"
+        <h1>Human Player</h1>
+        <select name="token" class="token-selector">
+        <option value="man">🧔🏼‍♂️</option>
+        <option value="woman">👩🏻</option>
+        <option value="santa">🎅🏼</option>
+        <option value="superhero">🦸🏼‍♂️</option>
+        <option value="supervillain">🦹🏼‍♂️</option>
+        <option value="vampire">🧛🏽‍♂️</option>
+        <option value="troll">🧌</option>
+        </select>
+        <p class="human-counter">Wins: 0</p>
+      </section>
+      <section class="game-section"
+        <h1 class="game-selection">Choose your game type:</h1>
+        <h1 class="game-one hidden">Game 1</h1>
+        <h1 class="game-two hidden">Game 2</h1>
+        <button class="game-one-button">Classic</button>
+        <button class="game-two-button">With a Twist!</button>
+      </section>
+      <section class="computer-section"
+        <h1>Computer Player</h1>
+        <select name="token" class="token-selector">
+        <option value="laptop">💻</option>
+        <option value="robot">🤖</option>
+        <option value="alien-monster">👾</option>
+        </select>
+        <p class="computer-counter">Wins: 0</p>
+      </section>
+    </main>
+    <script src="main.js"></script>
+    <script src="player.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

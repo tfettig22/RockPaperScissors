@@ -1,0 +1,70 @@
+* {
+  border: 1px solid red;
+  font-family: sans-serif;
+}
+
+body {
+  width: 98vw;
+  height: 97vh;
+}
+header {
+  height: 10%;
+  width: 100%;
+  font-size: 4em;
+  text-align: center;
+}
+
+main {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.player-section {
+  background-image: linear-gradient(white, blue);
+  width: 15%;
+  font-size: 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.token-selector {
+  height: 10%;
+  width: 50%;
+  font-size: 2em;
+  text-align: center;
+}
+
+.game-section {
+  width: 70%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.game-one-button {
+  height: 20%;
+  width: 30%;
+}
+
+.game-two-button {
+  height: 20%;
+  width: 30%;
+}
+
+.computer-section {
+  background-image: linear-gradient(white, red);
+  width: 15%;
+  font-size: 2em;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
