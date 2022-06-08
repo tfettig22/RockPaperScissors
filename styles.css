@@ -1,46 +1,64 @@
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-family: sans-serif;
 }
 
 body {
   width: 98vw;
   height: 97vh;
+  background-color: black;
 }
 header {
-  height: 10%;
   width: 100%;
+  height: 10%;
+  border-bottom: 5px solid black;
   font-size: 4em;
   text-align: center;
+  background-image: linear-gradient(to right, black, white, black);
 }
 
 main {
-  height: 90%;
   width: 100%;
+  height: 90%;
+  background-image: linear-gradient(to right, black, white, black);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.player-section {
+button {
+  cursor: pointer;
+}
+
+.human-section {
   background-image: linear-gradient(white, blue);
   width: 15%;
   font-size: 2em;
   text-align: center;
+  padding-top: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.token-selector {
-  height: 10%;
+.human-token-selector,
+.computer-token-selector {
   width: 50%;
+  height: 10%;
   font-size: 2em;
   text-align: center;
+  margin-top: 3%;
+}
+
+.change-game-button {
+  width: 60%;
+  height: 5%;
+  border-radius: 10px;
 }
 
 .game-section {
   width: 70%;
+  font-size: 2.5em;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -48,14 +66,21 @@ main {
   align-items: center;
 }
 
-.game-one-button {
-  height: 20%;
-  width: 30%;
+.button-option-section {
+  width: 60%;
+  height: 60%;
+  font-size: .5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.game-two-button {
-  height: 20%;
+.classic-button,
+.twist-button {
+  height: 10%;
   width: 30%;
+  font-size: 1em;
+  border-radius: 10px;
 }
 
 .computer-section {
@@ -63,6 +88,10 @@ main {
   width: 15%;
   font-size: 2em;
   text-align: center;
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hidden {
