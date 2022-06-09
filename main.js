@@ -92,6 +92,8 @@ function makeClassicSelection() {
     updateScoreBoard();
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
+    console.log(human.choice)
+    console.log(computer.choice)
   }
 }
 
@@ -103,24 +105,36 @@ function makeTwistSelection() {
     updateScoreBoard();
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
+    console.log(human.choice)
+    console.log(computer.choice)
   }
 }
 
 function compareResults() {
     if (human.choice === computer.choice) {
       gameTypePrompt.innerText = "Draw!";
-  } else if ((human.choice === "Rock" && computer.choice === ("Scissors" || "Lizard")) ||
-            (human.choice === "Paper" && computer.choice === ("Rock" || "Alien")) ||
-            (human.choice === "Scissors" && computer.choice === ("Paper" || "Lizard")) ||
-            (human.choice === "Lizard" && computer.choice === ("Paper" || "Alien")) ||
-            (human.choice === "Alien" && computer.choice === ("Scissors" || "Rock"))) {
+  } else if ((human.choice === "Rock" && computer.choice === "Scissors") ||
+            (human.choice === "Rock" && computer.choice === "Lizard") ||
+            (human.choice === "Paper" && computer.choice === "Rock") ||
+            (human.choice === "Paper" && computer.choice === "Alien") ||
+            (human.choice === "Scissors" && computer.choice === "Paper") ||
+            (human.choice === "Scissors" && computer.choice === "Lizard") ||
+            (human.choice === "Lizard" && computer.choice === "Paper") ||
+            (human.choice === "Lizard" && computer.choice === "Alien") ||
+            (human.choice === "Alien" && computer.choice === "Scissors") ||
+            (human.choice === "Alien" && computer.choice === "Rock")) {
       gameTypePrompt.innerText = `${human.choice} beats ${computer.choice}, You win!`;
       human.wins++;
-  } else if ((human.choice === "Rock" && computer.choice === ("Paper" || "Alien")) ||
-            (human.choice === "Paper" && computer.choice === ("Scissors" || "Lizard")) ||
-            (human.choice === "Scissors" && computer.choice === ("Rock" || "Alien")) ||
-            (human.choice === "Lizard" && computer.choice === ("Rock" || "Scissors")) ||
-            (human.choice === "Alien" && computer.choice === ("Paper" || "Lizard"))) {
+  } else if ((human.choice === "Rock" && computer.choice === "Paper") ||
+            (human.choice === "Rock" && computer.choice === "Alien") ||
+            (human.choice === "Paper" && computer.choice === "Scissors") ||
+            (human.choice === "Paper" && computer.choice === "Lizard") ||
+            (human.choice === "Scissors" && computer.choice === "Rock") ||
+            (human.choice === "Scissors" && computer.choice === "Alien") ||
+            (human.choice === "Lizard" && computer.choice === "Rock") ||
+            (human.choice === "Lizard" && computer.choice === "Scissors") ||
+            (human.choice === "Alien" && computer.choice === "Paper") ||
+            (human.choice === "Alien" && computer.choice === "Lizard")) {
       gameTypePrompt.innerText = `${computer.choice} beats ${human.choice}, You lose...`;
       computer.wins++;
   }
