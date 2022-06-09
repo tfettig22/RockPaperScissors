@@ -92,8 +92,6 @@ function makeClassicSelection() {
     updateScoreBoard();
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
-    console.log(human.choice)
-    console.log(computer.choice)
   }
 }
 
@@ -105,8 +103,6 @@ function makeTwistSelection() {
     updateScoreBoard();
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
-    console.log(human.choice)
-    console.log(computer.choice)
   }
 }
 
