@@ -12,4 +12,10 @@ class Player {
     this.choice = (validChoices[randomChoice])
   };
 
+  takeTwistTurn() {
+    var validChoices = ["Rock", "Paper", "Scissors", "Lizard", "Alien"]
+    var randomChoice = Math.floor(Math.random() * validChoices.length)
+    this.choice = (validChoices[randomChoice])
+  }
+
 };

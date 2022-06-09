@@ -15,6 +15,8 @@ var humanToken = document.querySelector(".human-token-selector");
 var computerToken = document.querySelector(".computer-token-selector");
 var humanCounter = document.querySelector(".human-counter");
 var computerCounter = document.querySelector(".computer-counter");
+var humanChoiceIcon = document.querySelector(".human-choice-icon");
+var computerChoiceIcon = document.querySelector(".computer-choice-icon");
 // *** Event Listeners *** //
 changeGameButton.addEventListener("click", changeGameType);
 classicButton.addEventListener("click", playClassicGame);
@@ -88,28 +90,39 @@ function makeClassicSelection() {
     computer.takeTurn();
     compareResults();
     updateScoreBoard();
+    updateHumanChoiceIcons();
+    updateComputerChoiceIcons();
   }
 }
 
 function makeTwistSelection() {
   if (event.target.classList.value === "option") {
     human.choice = event.target.id;
+    computer.takeTwistTurn();
+    compareResults();
+    updateScoreBoard();
+    updateHumanChoiceIcons();
+    updateComputerChoiceIcons();
   }
 }
 
 function compareResults() {
     if (human.choice === computer.choice) {
       gameTypePrompt.innerText = "Draw!";
-  } else if ((human.choice === "Rock" && computer.choice === "Scissors") ||
-            (human.choice === "Paper" && computer.choice === "Rock") ||
-            (human.choice === "Scissors" && computer.choice === "Paper")) {
-    gameTypePrompt.innerText = `${human.choice} beats ${computer.choice}, You win!`;
-    human.wins++;
-  } else if ((human.choice === "Rock" && computer.choice === "Paper") ||
-            (human.choice === "Paper" && computer.choice === "Scissors") ||
-            (human.choice === "Scissors" && computer.choice === "Rock")) {
-    gameTypePrompt.innerText = `${computer.choice} beats ${human.choice}, You lose...`;
-    computer.wins++;
+  } else if ((human.choice === "Rock" && computer.choice === ("Scissors" || "Lizard")) ||
+            (human.choice === "Paper" && computer.choice === ("Rock" || "Alien")) ||
+            (human.choice === "Scissors" && computer.choice === ("Paper" || "Lizard")) ||
+            (human.choice === "Lizard" && computer.choice === ("Paper" || "Alien")) ||
+            (human.choice === "Alien" && computer.choice === ("Scissors" || "Rock"))) {
+      gameTypePrompt.innerText = `${human.choice} beats ${computer.choice}, You win!`;
+      human.wins++;
+  } else if ((human.choice === "Rock" && computer.choice === ("Paper" || "Alien")) ||
+            (human.choice === "Paper" && computer.choice === ("Scissors" || "Lizard")) ||
+            (human.choice === "Scissors" && computer.choice === ("Rock" || "Alien")) ||
+            (human.choice === "Lizard" && computer.choice === ("Rock" || "Scissors")) ||
+            (human.choice === "Alien" && computer.choice === ("Paper" || "Lizard"))) {
+      gameTypePrompt.innerText = `${computer.choice} beats ${human.choice}, You lose...`;
+      computer.wins++;
   }
 }
 
@@ -123,17 +136,30 @@ function resetScoreBoard() {
   computerCounter.innerText = "Wins: 0";
 }
 
+function updateHumanChoiceIcons() {
+    if (human.choice === "Rock") {
+      humanChoiceIcon.innerText = "🗿"
+  } else if (human.choice === "Paper") {
+      humanChoiceIcon.innerText = "📜"
+  } else if (human.choice === "Scissors") {
+      humanChoiceIcon.innerText = "✂️"
+  } else if (human.choice === "Lizard") {
+      humanChoiceIcon.innerText = "🦎"
+  } else if (human.choice === "Alien") {
+      humanChoiceIcon.innerText = "👽"
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-//.
+function updateComputerChoiceIcons() {
+    if (computer.choice === "Rock") {
+      computerChoiceIcon.innerText = "🗿"
+  } else if (computer.choice === "Paper") {
+      computerChoiceIcon.innerText = "📜"
+  } else if (computer.choice === "Scissors") {
+      computerChoiceIcon.innerText = "✂️"
+  } else if (computer.choice === "Lizard") {
+      computerChoiceIcon.innerText = "🦎"
+  } else if (computer.choice === "Alien") {
+      computerChoiceIcon.innerText = "👽"
+  }
+}

@@ -51,6 +51,11 @@ button {
   margin-top: 3%;
 }
 
+.human-choice-icon,
+.computer-choice-icon {
+  font-size: 5em;
+}
+
 .change-game-button {
   width: 60%;
   height: 5%;
