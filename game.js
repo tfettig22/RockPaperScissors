@@ -1,10 +1,6 @@
 class Game {
-  contructor(gameType, ) {
+  contructor(gameType) {
     this.type = gameType;
-
-  };
-
-  method() {
 
   };
 
