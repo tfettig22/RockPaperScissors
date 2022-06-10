@@ -43,7 +43,8 @@ function changeGameType() {
   gameTypePrompt.innerText = "Choose your game type:";
   humanToken.removeAttribute("disabled", "");
   computerToken.removeAttribute("disabled", "");
-  resetScoreBoard()
+  resetScoreBoard();
+  resetIcons();
 };
 
 function playClassicGame() {
@@ -93,7 +94,8 @@ function makeClassicSelection() {
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
     classicAddEffects();
-    var timeout = setTimeout(classicRemoveEffects, 3500)
+    fadeWinPrompt();
+    var timeout = setTimeout(classicRemoveEffects, 4000);
   }
 }
 
@@ -106,42 +108,45 @@ function makeTwistSelection() {
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
     twistAddEffects();
-    var timeout = setTimeout(twistRemoveEffects, 3500)
+    fadeWinPrompt();
+    var timeout = setTimeout(twistRemoveEffects, 4000);
   }
 }
 
 function classicAddEffects() {
-  classicGameSection.classList.add("hidden")
-  addAnimation()
+  classicGameSection.classList.add("hidden");
+  addAnimation();
 }
 
 function classicRemoveEffects() {
-  classicGameSection.classList.remove("hidden")
-  gameTypePrompt.innerText = "Choose your fighter!"
-  removeAnimation()
+  classicGameSection.classList.remove("hidden");
+  gameTypePrompt.innerText = "Choose your fighter!";
+  gameTypePrompt.classList.remove("fade-in")
+  removeAnimation();
 }
 
 function twistAddEffects() {
-  twistGameSection.classList.add("hidden")
-  addAnimation()
+  twistGameSection.classList.add("hidden");
+  addAnimation();
 }
 
 function twistRemoveEffects() {
-  twistGameSection.classList.remove("hidden")
-  gameTypePrompt.innerText = "Choose your fighter!"
-  removeAnimation()
+  twistGameSection.classList.remove("hidden");
+  gameTypePrompt.innerText = "Choose your fighter!";
+  gameTypePrompt.classList.remove("fade-in")
+  removeAnimation();
 }
 
 function addAnimation() {
-  humanChoiceIcon.classList.add("human-move-to-middle")
-  computerChoiceIcon.classList.add("comp-move-to-middle")
-  changeGameButton.classList.add("hidden")
+  humanChoiceIcon.classList.add("human-move-to-middle");
+  computerChoiceIcon.classList.add("comp-move-to-middle");
+  changeGameButton.classList.add("hidden");
 }
 
 function removeAnimation() {
-  humanChoiceIcon.classList.remove("human-move-to-middle")
-  computerChoiceIcon.classList.remove("comp-move-to-middle")
-  changeGameButton.classList.remove("hidden")
+  humanChoiceIcon.classList.remove("human-move-to-middle");
+  computerChoiceIcon.classList.remove("comp-move-to-middle");
+  changeGameButton.classList.remove("hidden");
 }
 
 function compareResults() {
@@ -159,16 +164,7 @@ function compareResults() {
             (human.choice === "Elephant" && computer.choice === "Rhino")) {
       gameTypePrompt.innerText = `${human.choice} beats ${computer.choice}, You win!`;
       human.wins++;
-  } else if ((human.choice === "Rhino" && computer.choice === "Tiger") ||
-            (human.choice === "Rhino" && computer.choice === "Elephant") ||
-            (human.choice === "Tiger" && computer.choice === "Crocodile") ||
-            (human.choice === "Tiger" && computer.choice === "Gorilla") ||
-            (human.choice === "Crocodile" && computer.choice === "Rhino") ||
-            (human.choice === "Crocodile" && computer.choice === "Elephant") ||
-            (human.choice === "Gorilla" && computer.choice === "Rhino") ||
-            (human.choice === "Gorilla" && computer.choice === "Crocodile") ||
-            (human.choice === "Elephant" && computer.choice === "Tiger") ||
-            (human.choice === "Elephant" && computer.choice === "Gorilla")) {
+  } else {
       gameTypePrompt.innerText = `${computer.choice} beats ${human.choice}, You lose...`;
       computer.wins++;
   }
@@ -184,30 +180,39 @@ function resetScoreBoard() {
   computerCounter.innerText = "Wins: 0";
 }
 
+function resetIcons() {
+  humanChoiceIcon.innerText = "";
+  computerChoiceIcon.innerText = "";
+}
+
+function fadeWinPrompt() {
+  gameTypePrompt.classList.add("fade-in")
+}
+
 function updateHumanChoiceIcons() {
     if (human.choice === "Rhino") {
-      humanChoiceIcon.innerText = "🦏"
+      humanChoiceIcon.innerText = "🦏";
   } else if (human.choice === "Tiger") {
-      humanChoiceIcon.innerText = "🐅"
+      humanChoiceIcon.innerText = "🐅";
   } else if (human.choice === "Crocodile") {
-      humanChoiceIcon.innerText = "🐊"
+      humanChoiceIcon.innerText = "🐊";
   } else if (human.choice === "Gorilla") {
-      humanChoiceIcon.innerText = "🦍"
+      humanChoiceIcon.innerText = "🦍";
   } else if (human.choice === "Elephant") {
-      humanChoiceIcon.innerText = "🐘"
+      humanChoiceIcon.innerText = "🐘";
   }
 }
 
 function updateComputerChoiceIcons() {
     if (computer.choice === "Rhino") {
-      computerChoiceIcon.innerText = "🦏"
+      computerChoiceIcon.innerText = "🦏";
   } else if (computer.choice === "Tiger") {
-      computerChoiceIcon.innerText = "🐅"
+      computerChoiceIcon.innerText = "🐅";
   } else if (computer.choice === "Crocodile") {
-      computerChoiceIcon.innerText = "🐊"
+      computerChoiceIcon.innerText = "🐊";
   } else if (computer.choice === "Gorilla") {
-      computerChoiceIcon.innerText = "🦍"
+      computerChoiceIcon.innerText = "🦍";
   } else if (computer.choice === "Elephant") {
-      computerChoiceIcon.innerText = "🐘"
+      computerChoiceIcon.innerText = "🐘";
   }
 }
