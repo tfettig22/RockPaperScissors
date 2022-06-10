@@ -2,43 +2,42 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Rock Paper Scissors</title>
+    <title>The African Safari Showdown</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header>Rock - Paper - Scissors</header>
+    <header>The African Safari Showdown</header>
     <main>
       <section class="human-section">
         <p>Human Player</p>
         <select name="token" class="human-token-selector">
         <option value="man">🧔🏼‍♂️</option>
         <option value="woman">👩🏻</option>
-        <option value="santa">🎅🏼</option>
         <option value="superhero">🦸🏼‍♂️</option>
         <option value="supervillain">🦹🏼‍♂️</option>
         <option value="vampire">🧛🏽‍♂️</option>
         <option value="troll">🧌</option>
         </select>
         <p class="human-counter">Wins: 0</p>
-        <button class="change-game-button hidden">Change Game Type</button>
+        <p class="human-choice-icon"></p>
       </section>
       <section class="game-section">
         <p class="game-type-prompt">Choose your game type:</p>
         <section class="button-option-section">
           <p class="classic-rules">
           Classic rules:
-          <br>Rock > Scissors,
-          <br>Scissors > Paper,
-          <br>Paper > Rock
+          <br>Rhino > Crocodile,
+          <br>Tiger > Rhino,
+          <br>Crocodile > Tiger
           </p>
           <button class="classic-button">Classic</button>
           <p class="twist-rules">
           Twist Rules:
-          <br>Rock > Scissors & Lizard,
-          <br>Scissors > Paper & Lizard,
-          <br>Paper > Rock & Alien,
-          <br>Lizard > Paper & Alien,
-          <br>Alien > Scissors & Rock,
+          <br>Rhino > Crocodile & Gorilla,
+          <br>Tiger > Rhino & Elephant,
+          <br>Crocodile > Tiger & Gorilla,
+          <br>Gorilla > Tiger & Elephant,
+          <br>Elephant > Crocodile & Rhino,
           </p>
           <button class="twist-button">With a Twist!</button>
         </section>
@@ -48,6 +47,7 @@
         <section class="twist-game-section hidden">
           <!-- insert innerHTML here -->
         </section>
+        <button class="change-game-button hidden">Start New Game - Reset Scores</button>
       </section>
       <section class="computer-section">
         <p>Computer Player</p>
@@ -57,6 +57,7 @@
         <option value="alien-monster">👾</option>
         </select>
         <p class="computer-counter">Wins: 0</p>
+        <p class="computer-choice-icon"></p>
       </section>
     </main>
     <script src="player.js"></script>
