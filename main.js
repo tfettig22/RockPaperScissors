@@ -50,7 +50,7 @@ function playClassicGame() {
   changeDisplay();
   displayClassic();
   classicGameSection.classList.remove("hidden");
-  gameTypePrompt.innerText = "Classic: Rhino, Tiger, Crocodile";
+  gameTypePrompt.innerText = "Choose your fighter!";
   human = new Player("Tom", humanToken.value);
   computer = new Player("Opponent", computerToken.value);
   game = new Game("classic");
@@ -60,7 +60,7 @@ function playTwistGame() {
   changeDisplay();
   displayTwist();
   twistGameSection.classList.remove("hidden");
-  gameTypePrompt.innerText = "Rhino Tiger Crocodile with a twist: Gorillas and Elephants!";
+  gameTypePrompt.innerText = "Choose your fighter!";
   human = new Player("Tom", humanToken.value);
   computer = new Player("Opponent", computerToken.value);
   game = new Game("twist");
@@ -69,19 +69,19 @@ function playTwistGame() {
 function displayClassic() {
   classicGameSection.innerHTML = "";
   classicGameSection.innerHTML +=
-  `<button class="option" id="Rhino">Rhino</button>
-  <button class="option"id="Tiger">Tiger</button>
-  <button class="option"id="Crocodile">Crocodile</button>`;
+  `<button class="option" id="Rhino">🦏</button>
+  <button class="option"id="Tiger">🐅</button>
+  <button class="option"id="Crocodile">🐊</button>`;
 }
 
 function displayTwist() {
   twistGameSection.innerHTML = "";
   twistGameSection.innerHTML +=
-  `<button class="option"id="Rhino">Rhino</button>
-  <button class="option"id="Tiger">Tiger</button>
-  <button class="option"id="Crocodile">Crocodile</button>
-  <button class="option"id="Gorilla">Gorilla</button>
-  <button class="option"id="Elephant">Elephant</button>`;
+  `<button class="option"id="Rhino">🦏</button>
+  <button class="option"id="Tiger">🐅</button>
+  <button class="option"id="Crocodile">🐊</button>
+  <button class="option"id="Gorilla">🦍</button>
+  <button class="option"id="Elephant">🐘</button>`;
 }
 
 function makeClassicSelection() {
@@ -92,6 +92,8 @@ function makeClassicSelection() {
     updateScoreBoard();
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
+    classicAddEffects();
+    var timeout = setTimeout(classicRemoveEffects, 3500)
   }
 }
 
@@ -103,7 +105,43 @@ function makeTwistSelection() {
     updateScoreBoard();
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
+    twistAddEffects();
+    var timeout = setTimeout(twistRemoveEffects, 3500)
   }
+}
+
+function classicAddEffects() {
+  classicGameSection.classList.add("hidden")
+  addAnimation()
+}
+
+function classicRemoveEffects() {
+  classicGameSection.classList.remove("hidden")
+  gameTypePrompt.innerText = "Choose your fighter!"
+  removeAnimation()
+}
+
+function twistAddEffects() {
+  twistGameSection.classList.add("hidden")
+  addAnimation()
+}
+
+function twistRemoveEffects() {
+  twistGameSection.classList.remove("hidden")
+  gameTypePrompt.innerText = "Choose your fighter!"
+  removeAnimation()
+}
+
+function addAnimation() {
+  humanChoiceIcon.classList.add("human-move-to-middle")
+  computerChoiceIcon.classList.add("comp-move-to-middle")
+  changeGameButton.classList.add("hidden")
+}
+
+function removeAnimation() {
+  humanChoiceIcon.classList.remove("human-move-to-middle")
+  computerChoiceIcon.classList.remove("comp-move-to-middle")
+  changeGameButton.classList.remove("hidden")
 }
 
 function compareResults() {

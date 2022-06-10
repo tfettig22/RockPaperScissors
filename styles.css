@@ -31,8 +31,8 @@ button {
   cursor: pointer;
 }
 
-.human-section {
-  background-image: linear-gradient(white, blue);
+.human-section,
+.computer-section {
   width: 15%;
   font-size: 2em;
   text-align: center;
@@ -40,6 +40,14 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.human-section {
+  background-image: linear-gradient(white, blue);
+}
+
+.computer-section {
+  background-image: linear-gradient(white, red);
 }
 
 .human-token-selector,
@@ -57,18 +65,18 @@ button {
 }
 
 .change-game-button {
-  width: 60%;
+  width: 25%;
   height: 5%;
   border-radius: 10px;
 }
 
 .game-section {
   width: 70%;
+  margin-top: 5%;
   font-size: 2.5em;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 }
 
@@ -87,19 +95,62 @@ button {
   width: 30%;
   font-size: 1em;
   border-radius: 10px;
+  transition: .5s;
 }
 
-.computer-section {
-  background-image: linear-gradient(white, red);
-  width: 15%;
-  font-size: 2em;
-  text-align: center;
-  padding-top: 1%;
+.classic-button:hover,
+.twist-button:hover,
+.change-game-button:hover {
+  background-color: #BCBCBC;
+  box-shadow: 1px 1px 2px black;
+}
+
+.classic-game-section,
+.twist-game-section {
+  width: 75%;
+  height: 60%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+}
+
+.option {
+  width: 19%;
+  height: 40%;
+  font-size: 3.5em;
+  border-radius: 10px;
+  background-color: #DBDBDB;
+  transition: .3s;
+}
+
+.option:hover {
+  transform: translateY(-10%);
+  text-shadow: 3px 3px 2px black;
+  box-shadow: 2px 2px 2px black;
+}
+
+.human-move-to-middle {
+  animation: humanMoveToMiddle 3.5s;
+}
+
+.comp-move-to-middle {
+  animation: compMoveToMiddle 3.5s;
 }
 
 .hidden {
   display: none;
+}
+
+@keyframes humanMoveToMiddle {
+  0% {transform: translateX(0) translateY(0)}
+  30% {transform: translateX(410%) translateY(-80%)}
+  70% {transform: translateX(410%) translateY(-80%)}
+  100% {transform: translateX(0) translateY(0)}
+}
+
+@keyframes compMoveToMiddle {
+  0% {transform: translateX(0) translateY(0)}
+  30% {transform: translateX(-410%) translateY(-80%)}
+  70% {transform: translateX(-410%) translateY(-80%)}
+  100% {transform: translateX(0) translateY(0)}
 }
