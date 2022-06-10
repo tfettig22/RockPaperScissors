@@ -94,7 +94,8 @@ function makeClassicSelection() {
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
     classicAddEffects();
-    var timeout = setTimeout(classicRemoveEffects, 3500);
+    fadeWinPrompt();
+    var timeout = setTimeout(classicRemoveEffects, 4000);
   }
 }
 
@@ -107,7 +108,8 @@ function makeTwistSelection() {
     updateHumanChoiceIcons();
     updateComputerChoiceIcons();
     twistAddEffects();
-    var timeout = setTimeout(twistRemoveEffects, 3500);
+    fadeWinPrompt();
+    var timeout = setTimeout(twistRemoveEffects, 4000);
   }
 }
 
@@ -119,6 +121,7 @@ function classicAddEffects() {
 function classicRemoveEffects() {
   classicGameSection.classList.remove("hidden");
   gameTypePrompt.innerText = "Choose your fighter!";
+  gameTypePrompt.classList.remove("fade-in")
   removeAnimation();
 }
 
@@ -130,6 +133,7 @@ function twistAddEffects() {
 function twistRemoveEffects() {
   twistGameSection.classList.remove("hidden");
   gameTypePrompt.innerText = "Choose your fighter!";
+  gameTypePrompt.classList.remove("fade-in")
   removeAnimation();
 }
 
@@ -179,6 +183,10 @@ function resetScoreBoard() {
 function resetIcons() {
   humanChoiceIcon.innerText = "";
   computerChoiceIcon.innerText = "";
+}
+
+function fadeWinPrompt() {
+  gameTypePrompt.classList.add("fade-in")
 }
 
 function updateHumanChoiceIcons() {
