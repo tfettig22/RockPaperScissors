@@ -195,7 +195,7 @@ label {
 }
 
 .option:hover {
-  transform: translateY(-9%);
+  transform: translateY(-8%);
   box-shadow: 2px 2px 2px black;
   background-color: #FFFFFF;
 }
