@@ -1,6 +1,6 @@
 * {
   /* border: 1px solid red; */
-  font-family: sans-serif;
+  font-family: "Papyrus", fantasy, sans-serif;
 }
 
 body {
@@ -92,14 +92,13 @@ label {
   text-shadow: 3px 3px 2px black;
 }
 
-.human-choice-icon {
-  transform: scale(-1, 1);
+.human-choice-icon:hover,
+.computer-choice-icon:hover {
+  cursor: default;
 }
 
-.change-game-button {
-  width: 25%;
-  height: 5%;
-  border-radius: 10px;
+.human-choice-icon {
+  transform: scale(-1, 1);
 }
 
 .game-section {
@@ -152,7 +151,15 @@ label {
 }
 
 .change-game-button {
+  width: 25%;
+  height: 5%;
   font-size: .4em;
+  border-radius: 10px;
+  background-color: #DBDBDB
+}
+
+.change-game-button:hover {
+  background-color: #FFFFFF;
 }
 
 .classic-game-section,
