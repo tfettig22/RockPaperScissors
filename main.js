@@ -17,6 +17,8 @@ var humanCounter = document.querySelector(".human-counter");
 var computerCounter = document.querySelector(".computer-counter");
 var humanChoiceIcon = document.querySelector(".human-choice-icon");
 var computerChoiceIcon = document.querySelector(".computer-choice-icon");
+var humanNameInput = document.querySelector(".name-input")
+var computerNameInput = document.querySelector(".computer-name-input")
 // *** Event Listeners *** //
 changeGameButton.addEventListener("click", changeGameType);
 classicButton.addEventListener("click", playClassicGame);
@@ -43,6 +45,8 @@ function changeDisplay() {
   hide(buttonOptionSection);
   humanToken.setAttribute("disabled", "");
   computerToken.setAttribute("disabled", "");
+  humanNameInput.setAttribute("disabled", "")
+  computerNameInput.setAttribute("disabled", "")
 }
 
 function changeGameType() {
@@ -54,25 +58,26 @@ function changeGameType() {
   resetIcons();
   humanToken.removeAttribute("disabled", "");
   computerToken.removeAttribute("disabled", "");
+  humanNameInput.removeAttribute("disabled", "")
+  computerNameInput.removeAttribute("disabled", "")
   gameTypePrompt.innerText = "Choose your game type:";
 };
 
 function playClassicGame() {
   show(classicGameSection);
   gameTypePrompt.innerText = "Choose your fighter!";
-  human = new Player("Tom", humanToken.value)
-  computer = new Player("Opponent", computerToken.value)
+  human = new Player(humanNameInput.value, humanToken.value)
+  computer = new Player(computerNameInput.value, computerToken.value)
   game = new Game("Classic")
   changeDisplay();
   displayGame();
 };
 
-
 function playTwistGame() {
   show(twistGameSection);
   gameTypePrompt.innerText = "Choose your fighter!";
-  human = new Player("Tom", humanToken.value);
-  computer = new Player("Opponent", computerToken.value);
+  human = new Player(humanNameInput.value, humanToken.value);
+  computer = new Player(computerNameInput.value, computerToken.value);
   game = new Game("Twist");
   changeDisplay();
   displayGame();

@@ -1,12 +1,12 @@
 * {
   /* border: 1px solid red; */
-  font-family: sans-serif;
+  font-family: "Papyrus", fantasy, sans-serif;
 }
 
 body {
   width: 99vw;
   height: 97vh;
-  background-color: black;
+  background-color: #000000;
 }
 
 header {
@@ -14,6 +14,7 @@ header {
   height: 10%;
   padding-top: .5%;
   font-size: 4em;
+  text-decoration: underline 2px;
   text-align: center;
   background-image: linear-gradient(to right, #F0B45C, #DBDBDB, #F0B45C);
 }
@@ -29,6 +30,10 @@ main {
 
 button {
   cursor: pointer;
+}
+
+label {
+  margin-top: 10%;
 }
 
 .human-section,
@@ -58,13 +63,19 @@ button {
   border: 2px groove #F54545;
 }
 
+.name-input,
+.computer-name-input {
+  font-size: .9em;
+  text-align: center;
+}
+
 .human-token-selector,
 .computer-token-selector {
   width: 50%;
   height: 10%;
   font-size: 2em;
   text-align: center;
-  margin-top: 3%;
+  margin-top: 10%;
 }
 
 .human-token-selector {
@@ -79,17 +90,16 @@ button {
 .computer-choice-icon {
   font-size: 5em;
   margin-top: 35%;
-  text-shadow: 3px 3px 2px black;
+  text-shadow: 3px 3px 2px #000000;
+}
+
+.human-choice-icon:hover,
+.computer-choice-icon:hover {
+  cursor: default;
 }
 
 .human-choice-icon {
   transform: scale(-1, 1);
-}
-
-.change-game-button {
-  width: 25%;
-  height: 5%;
-  border-radius: 10px;
 }
 
 .game-section {
@@ -128,21 +138,29 @@ button {
 }
 
 .twist-button {
-  background-image: linear-gradient(red, yellow, green);
+  background-image: linear-gradient(#FF0000, #FFFF00, #008000);
 }
 
 .twist-button:hover {
-  background-image: linear-gradient(green, yellow, red);
+  background-image: linear-gradient(#008000, #FFFF00, #FF0000);
 }
 
 .classic-button:hover,
 .twist-button:hover,
 .change-game-button:hover {
-  box-shadow: 2px 2px 3px black;
+  box-shadow: 2px 2px 3px #000000;
 }
 
 .change-game-button {
+  width: 25%;
+  height: 5%;
   font-size: .4em;
+  border-radius: 10px;
+  background-color: #DBDBDB
+}
+
+.change-game-button:hover {
+  background-color: #FFFFFF;
 }
 
 .classic-game-section,
@@ -171,15 +189,15 @@ button {
   width: 19%;
   height: 60%;
   font-size: 3.5em;
-  text-shadow: 3px 3px 2px black;
+  text-shadow: 3px 3px 2px #000000;
   border-radius: 10px;
   background-color: #DBDBDB;
   transition: .2s;
 }
 
 .option:hover {
-  transform: translateY(-9%);
-  box-shadow: 2px 2px 2px black;
+  transform: translateY(-8%);
+  box-shadow: 2px 2px 2px #000000;
   background-color: #FFFFFF;
 }
 
