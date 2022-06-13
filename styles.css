@@ -14,7 +14,7 @@ header {
   height: 10%;
   padding-top: .5%;
   font-size: 3.5vw;
-  text-decoration: underline 2px;
+  text-decoration: underline 2.5px;
   text-align: center;
   background-image: linear-gradient(to right, #F0B45C, #DBDBDB, #F0B45C);
 }
@@ -85,6 +85,10 @@ label {
 
 .computer-token-selector {
   background-color: #F54545;
+}
+
+.icon-container {
+  height: 25vh;
 }
 
 .human-choice-icon,
