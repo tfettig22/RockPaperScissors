@@ -13,7 +13,7 @@ header {
   width: 100%;
   height: 10%;
   padding-top: .5%;
-  font-size: 4em;
+  font-size: 3.5vw;
   text-decoration: underline 2px;
   text-align: center;
   background-image: linear-gradient(to right, #F0B45C, #DBDBDB, #F0B45C);
@@ -33,6 +33,7 @@ button {
 }
 
 label {
+  font-size: 1.5vw;
   margin-top: 10%;
 }
 
@@ -40,7 +41,7 @@ label {
 .computer-section {
   width: 15%;
   height: 90%;
-  font-size: 2em;
+  font-size: 2vw;
   margin-left: 2%;
   margin-right: 2%;
   text-align: center;
@@ -65,15 +66,15 @@ label {
 
 .name-input,
 .computer-name-input {
-  font-size: .9em;
+  font-size: 1vw;
   text-align: center;
 }
 
 .human-token-selector,
 .computer-token-selector {
-  width: 50%;
-  height: 10%;
-  font-size: 2em;
+  width: 6vw;
+  height: 4.5vw;
+  font-size: 3.5vw;
   text-align: center;
   margin-top: 10%;
 }
@@ -88,7 +89,7 @@ label {
 
 .human-choice-icon,
 .computer-choice-icon {
-  font-size: 5em;
+  font-size: 8.3vw;
   margin-top: 35%;
   text-shadow: 3px 3px 2px #000000;
 }
@@ -105,7 +106,7 @@ label {
 .game-section {
   width: 70%;
   margin-top: 3%;
-  font-size: 2.5em;
+  font-size: 2vw;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -115,7 +116,7 @@ label {
 .button-option-section {
   width: 60%;
   height: 60%;
-  font-size: .5em;
+  font-size: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,9 +124,10 @@ label {
 
 .classic-button,
 .twist-button {
-  height: 10%;
-  width: 30%;
-  font-size: 1em;
+  height: 4vw;
+  width: 10vw;
+  padding-top: 1%;
+  font-size: 1.2vw;
   border-radius: 10px;
 }
 
@@ -152,9 +154,10 @@ label {
 }
 
 .change-game-button {
-  width: 25%;
-  height: 5%;
-  font-size: .4em;
+  width: 18vw;
+  height: 2vw;
+  padding-top: .5%;
+  font-size: 1vw;
   border-radius: 10px;
   background-color: #DBDBDB
 }
@@ -182,13 +185,13 @@ label {
 }
 
 .game-counter {
-  font-size: .7em;
+  font-size: 1.5vw;
 }
 
 .option {
-  width: 19%;
-  height: 60%;
-  font-size: 3.5em;
+  width: 9vw;
+  height: 9vw;
+  font-size: 7vw;
   text-shadow: 3px 3px 2px #000000;
   border-radius: 10px;
   background-color: #DBDBDB;
