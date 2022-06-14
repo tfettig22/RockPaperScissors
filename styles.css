@@ -4,7 +4,7 @@
 
 body {
   width: 99vw;
-  height: 98vh;
+  height: 97vh;
   background-color: #000000;
 }
 
@@ -217,6 +217,10 @@ label {
 
 .fade-in {
   animation: fadeIn 3s;
+}
+
+.defeat {
+  opacity: .5;
 }
 
 @keyframes fadeIn {
