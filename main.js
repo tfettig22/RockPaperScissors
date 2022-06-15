@@ -29,8 +29,7 @@ twistGameSection.addEventListener("click", makeSelection);
 var human;
 var computer;
 var game;
-var effectsTimeout;
-var scoreTimeout;
+var animationTimeout;
 // *** Functions *** //
 function show(element) {
   element.classList.remove("hidden");
@@ -40,13 +39,29 @@ function hide(element) {
   element.classList.add("hidden");
 }
 
+function addEffect(element, effect) {
+  element.classList.add(effect);
+}
+
+function removeEffect(element, effect) {
+  element.classList.remove(effect);
+}
+
+function disable(element) {
+  element.setAttribute("disabled", "");
+}
+
+function enable(element) {
+  element.removeAttribute("disabled", "");
+}
+
 function changeDisplay() {
-  show(changeGameButton);
   hide(buttonOptionSection);
-  humanToken.setAttribute("disabled", "");
-  computerToken.setAttribute("disabled", "");
-  humanNameInput.setAttribute("disabled", "");
-  computerNameInput.setAttribute("disabled", "");
+  show(changeGameButton);
+  disable(humanToken);
+  disable(computerToken);
+  disable(humanNameInput);
+  disable(computerNameInput);
 }
 
 function changeGameType() {
@@ -54,31 +69,31 @@ function changeGameType() {
   hide(classicGameSection);
   hide(twistGameSection);
   show(buttonOptionSection);
+  enable(humanToken);
+  enable(computerToken);
+  enable(humanNameInput);
+  enable(computerNameInput);
   resetScoreBoard();
   resetIcons();
-  humanToken.removeAttribute("disabled", "");
-  computerToken.removeAttribute("disabled", "");
-  humanNameInput.removeAttribute("disabled", "");
-  computerNameInput.removeAttribute("disabled", "");
-  gameTypePrompt.innerText = "Choose your game type:";
+  resetGamePrompt();
 }
 
 function playClassicGame() {
-  show(classicGameSection);
-  gameTypePrompt.innerText = "Choose your fighter!";
   human = new Player(humanNameInput.value, humanToken.value);
   computer = new Player(computerNameInput.value, computerToken.value);
   game = new Game("Classic");
+  show(classicGameSection);
+  resetGamePrompt();
   changeDisplay();
   displayGame();
 }
 
 function playTwistGame() {
-  show(twistGameSection);
-  gameTypePrompt.innerText = "Choose your fighter!";
   human = new Player(humanNameInput.value, humanToken.value);
   computer = new Player(computerNameInput.value, computerToken.value);
   game = new Game("Twist");
+  show(twistGameSection);
+  resetGamePrompt();
   changeDisplay();
   displayGame();
 };
@@ -124,19 +139,17 @@ function updateGameData() {
   updateGamePrompt();
   updateHumanChoiceIcons();
   updateComputerChoiceIcons();
-  fadeWinPrompt();
-  scoreTimeout = setTimeout(updateScoreBoard, 2250);
+  addAnimation();
+  var scoreTimeout = setTimeout(updateScoreBoard, 1850);
 }
 
 function makeSelection() {
   if (event.target.classList.value === "option" && game.type === "Classic") {
       updateGameData();
-      classicAddEffects();
-      effectsTimeout = setTimeout(classicRemoveEffects, 4000);
+      animationTimeout = setTimeout(removeAnimation, 4000);
   } else if (event.target.classList.value === "option" && game.type === "Twist") {
       updateGameData();
-      twistAddEffects();
-      effectsTimeout = setTimeout(twistRemoveEffects, 4000);
+      animationTimeout = setTimeout(removeAnimation, 4000);
   }
 }
 
@@ -144,51 +157,51 @@ function updateGamePrompt() {
   if (game.draw === true) {
     gameTypePrompt.innerText = "Draw!";
   } else if (game.humanWin === true) {
-    gameTypePrompt.innerText = `${human.choice} beats ${computer.choice}, ${human.name} wins!`;
+    gameTypePrompt.innerText = `${human.choice} beats ${computer.choice}, ${human.name} has defeated ${computer.name}!`;
   } else {
-    gameTypePrompt.innerText = `${computer.choice} beats ${human.choice}, ${human.name} loses...`;
+    gameTypePrompt.innerText = `${computer.choice} beats ${human.choice}, ${human.name} has lost to ${computer.name}...`;
   }
 }
 
-function classicAddEffects() {
-  hide(classicGameSection);
-  addAnimation();
-}
-
-function classicRemoveEffects() {
-  show(classicGameSection);
-  removeAnimation();
+function resetGamePrompt() {
   gameTypePrompt.innerText = "Choose your fighter!";
-  gameTypePrompt.classList.remove("fade-in");
-}
-
-function twistAddEffects() {
-  hide(twistGameSection);
-  addAnimation();
-}
-
-function twistRemoveEffects() {
-  show(twistGameSection);
-  removeAnimation();
-  gameTypePrompt.innerText = "Choose your fighter!";
-  gameTypePrompt.classList.remove("fade-in");
 }
 
 function addAnimation() {
   hide(changeGameButton);
-  humanChoiceIcon.classList.add("human-move-to-middle");
-  computerChoiceIcon.classList.add("comp-move-to-middle");
+  addEffect(gameTypePrompt, "fade-in");
+  addEffect(humanChoiceIcon, "human-move-to-middle");
+  addEffect(computerChoiceIcon, "comp-move-to-middle");
+  if (game.type === "Classic") {
+    hide(classicGameSection);
+  } else if (game.type === "Twist") {
+    hide(twistGameSection);
+  }
 }
 
 function removeAnimation() {
+  resetGamePrompt();
   show(changeGameButton);
-  humanChoiceIcon.classList.remove("human-move-to-middle");
-  computerChoiceIcon.classList.remove("comp-move-to-middle");
+  removeEffect(gameTypePrompt, "fade-in")
+  removeEffect(humanChoiceIcon, "human-move-to-middle");
+  removeEffect(computerChoiceIcon, "comp-move-to-middle");
+  removeEffect(humanChoiceIcon, "defeat")
+  removeEffect(computerChoiceIcon, "defeat")
+  if (game.type === "Classic") {
+    show(classicGameSection);
+  } else if (game.type === "Twist") {
+    show(twistGameSection);
+  }
 }
 
 function updateScoreBoard() {
   humanCounter.innerText = `Wins: ${human.wins}`;
   computerCounter.innerText = `Wins: ${computer.wins}`;
+  if (game.humanWin === true) {
+    addEffect(computerChoiceIcon, "defeat");
+  } else if (game.computerWin === true) {
+    addEffect(humanChoiceIcon, "defeat");
+  }
 }
 
 function resetScoreBoard() {
@@ -199,10 +212,6 @@ function resetScoreBoard() {
 function resetIcons() {
   humanChoiceIcon.innerText = "";
   computerChoiceIcon.innerText = "";
-}
-
-function fadeWinPrompt() {
-  gameTypePrompt.classList.add("fade-in");
 }
 
 function updateHumanChoiceIcons() {
