@@ -7,15 +7,15 @@ class Player {
   };
 
   takeTurn() {
-    var validChoices = ["Rhino", "Tiger", "Crocodile"]
-    var randomChoice = Math.floor(Math.random() * validChoices.length)
-    this.choice = (validChoices[randomChoice])
+    var validChoices = ["Rhino", "Tiger", "Crocodile"];
+    var randomChoice = Math.floor(Math.random() * validChoices.length);
+    this.choice = (validChoices[randomChoice]);
   };
 
   takeTwistTurn() {
-    var validChoices = ["Rhino", "Tiger", "Crocodile", "Gorilla", "Elephant"]
-    var randomChoice = Math.floor(Math.random() * validChoices.length)
-    this.choice = (validChoices[randomChoice])
+    var validChoices = ["Rhino", "Tiger", "Crocodile", "Gorilla", "Elephant"];
+    var randomChoice = Math.floor(Math.random() * validChoices.length);
+    this.choice = (validChoices[randomChoice]);
   }
 
 };
