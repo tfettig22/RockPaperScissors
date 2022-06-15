@@ -1,7 +1,7 @@
-# RockPaperScissors
+# The African Safari Showdown - A spin-off game of rock paper scissors
 Written by Tom Fettig
 
-This is my final solo project for 2205 FEE Mod1. I will be creating a customized game of Rock Paper Scissors using HTML, CSS, and three separate JS files. For my game, I chose to re-create the classic style of Rock Paper Scissors and instead the user will be able to choose from exotic animals that will duke it out on the plains of Africa!
+This is my final solo project for 2205 FEE Mod1. I created a customized game of Rock Paper Scissors using HTML, CSS, and three separate JS files. For my game, I chose to re-create the classic style of Rock Paper Scissors and instead the user will be able to choose from exotic animals that will duke it out on the plains of Africa!
 
 In order to open the webpage, just use the deployed URL link listed below.  You may also fork and/or clone this repository and then `cd` into the directory, and run `open index.html`.
 
